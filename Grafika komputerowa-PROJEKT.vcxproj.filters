@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Engine">
+      <UniqueIdentifier>{d27aa270-d536-4293-bf46-d5aa6d43b879}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Engine Source Files">
+      <UniqueIdentifier>{faee0fff-86cc-4fef-a546-fdde18c7798a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Engine Header Files">
+      <UniqueIdentifier>{4e336c23-7f6e-4dd6-8270-6b474def5c53}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Excercises">
+      <UniqueIdentifier>{284031d7-8225-4940-ada5-041b03fda0ec}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Source.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\ResourceManager\Resources.cpp">
+      <Filter>Engine\Engine Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\GUI\TextField.cpp">
+      <Filter>Engine\Engine Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Window.cpp">
+      <Filter>Engine\Engine Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Exc2.cpp">
+      <Filter>Excercises</Filter>
+    </ClCompile>
+    <ClCompile Include="Exc1.cpp">
+      <Filter>Excercises</Filter>
+    </ClCompile>
+    <ClCompile Include="Exc3.cpp">
+      <Filter>Excercises</Filter>
+    </ClCompile>
+    <ClCompile Include="Exc4.cpp">
+      <Filter>Excercises</Filter>
+    </ClCompile>
+    <ClCompile Include="Exc5.cpp">
+      <Filter>Excercises</Filter>
+    </ClCompile>
+    <ClCompile Include="Exc6.cpp">
+      <Filter>Excercises</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Engine\ResourceManager\ResourceManager.h">
+      <Filter>Engine\Engine Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\ResourceManager\Resources.h">
+      <Filter>Engine\Engine Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\EngineLoader.h">
+      <Filter>Engine\Engine Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\GUI\TextField.h">
+      <Filter>Engine\Engine Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Window.h">
+      <Filter>Engine\Engine Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Utilities\Point.h">
+      <Filter>Engine\Engine Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Utilities\Line.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Exc2.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Exc1.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MyVector.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Exc3.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Exc4.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Exc5.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Exc6.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Utilities\Random.h">
+      <Filter>Engine\Engine Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="Resources\Fonts\arial.ttf">
+      <Filter>Resource Files</Filter>
+    </Font>
+  </ItemGroup>
+</Project>
