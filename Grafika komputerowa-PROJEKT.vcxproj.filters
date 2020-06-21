@@ -57,6 +57,12 @@
     <ClCompile Include="Exc6.cpp">
       <Filter>Excercises</Filter>
     </ClCompile>
+    <ClCompile Include="Exc7.cpp">
+      <Filter>Excercises</Filter>
+    </ClCompile>
+    <ClCompile Include="Exc8.cpp">
+      <Filter>Excercises</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\ResourceManager\ResourceManager.h">
@@ -104,10 +110,33 @@
     <ClInclude Include="Engine\Utilities\Random.h">
       <Filter>Engine\Engine Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="stb_image.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Font Include="Resources\Fonts\arial.ttf">
       <Filter>Resource Files</Filter>
     </Font>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Resources\Textures\crate.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\Textures\metal.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\Textures\obraz.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\Textures\table.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\Textures\wall.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\Textures\wood.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>

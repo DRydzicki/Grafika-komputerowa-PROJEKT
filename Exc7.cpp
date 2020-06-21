@@ -1,19 +1,4 @@
-// BACKUP CWICZENIE 5
-//
-//
-//#include"Exc1.h"
-//#include"Exc2.h"
-//#include"Exc3.h"
-//#include"Exc4.h"
-//#include"Exc5.h"
-//#include"Exc6.h"
-//int main() {
-//    Exc4::DrawWindow();
-//    Exc6::Run();
-//}
-//
-//
-// Nag³ówki
+//// Nag³ówki
 //#include"Engine/EngineLoader.h"
 //#include <GL/glew.h>
 //#include <glm/glm.hpp>
@@ -32,10 +17,13 @@
 //#version 150 core
 //in vec3 position;
 //in vec3 color;
+//    uniform mat4 model;
+//    uniform mat4 view;
+//    uniform mat4 proj;
 //out vec3 Color;
 //void main(){
 //Color = color;
-//gl_Position =  vec4(position, 1.0);
+//gl_Position =  proj * view * model * vec4(position, 1.0);
 //}
 //)glsl";
 //
@@ -49,31 +37,87 @@
 //}
 //)glsl";
 //
-//void object(int points, int buffer) {
-//    if (points < 3)
-//        return;
-//    GLfloat* vertices = new GLfloat[points * 6];
-//    float dalpha = 2 * 3.1415 / points;
-//    float alpha = 0;
-//    float R = 1;
-//    for (int i = 0; i < points * 6; i += 6) {
-//        vertices[i] = R * cos(alpha);
-//        vertices[i + 1] = R * sin(alpha);
-//        vertices[i + 2] = 0;
-//        vertices[i + 3] = random(1, 255) / 255.0;
-//        vertices[i + 4] = random(1, 255) / 255.0;
-//        vertices[i + 5] = random(1, 255) / 255.0;
-//        alpha += dalpha;
-//        std::cout << vertices[i + 3] << " -> " << vertices[i + 4] << " -> " << vertices[i + 5] << "\n";
-//    }
+//glm::vec3 cameraPos = glm::vec3(0.0f, 0.0f, 3.0f);
+//glm::vec3 cameraFront = glm::vec3(0.0f, 0.0f, -1.0f);
+//glm::vec3 cameraUp = glm::vec3(0.0f, 1.0f, 0.0f);
+//
+//
+//float rotate = 0;
+//
+//void cube(int buffer) {
+//    const int points = 36;
+//
+//    float vertices[] = {
+//        -0.5f, -0.5f, -0.5f,  0.0f, 0.0f, 0.0f,
+//        0.5f, -0.5f, -0.5f,  1.0f, 0.0f, 0.0f,
+//        0.5f,  0.5f, -0.5f,  1.0f, 1.0f, 0.0f,
+//        0.5f,  0.5f, -0.5f,  1.0f, 1.0f, 0.0f,
+//        -0.5f,  0.5f, -0.5f,  0.0f, 1.0f, 0.0f,
+//        -0.5f, -0.5f, -0.5f,  0.0f, 0.0f, 0.0f,
+//
+//        -0.5f, -0.5f,  0.5f,  0.0f, 0.0f, 0.0f,
+//        0.5f, -0.5f,  0.5f,  1.0f, 0.0f, 0.0f,
+//        0.5f,  0.5f,  0.5f,  1.0f, 1.0f, 0.0f,
+//        0.5f,  0.5f,  0.5f,  1.0f, 1.0f, 0.0f,
+//        -0.5f,  0.5f,  0.5f,  0.0f, 1.0f, 0.0f,
+//        -0.5f, -0.5f,  0.5f,  0.0f, 0.0f, 0.0f,
+//
+//        -0.5f,  0.5f,  0.5f,  1.0f, 0.0f, 0.0f,
+//        -0.5f,  0.5f, -0.5f,  1.0f, 1.0f, 0.0f,
+//        -0.5f, -0.5f, -0.5f,  0.0f, 1.0f, 0.0f,
+//        -0.5f, -0.5f, -0.5f,  0.0f, 1.0f, 0.0f,
+//        -0.5f, -0.5f,  0.5f,  0.0f, 0.0f, 0.0f,
+//        -0.5f,  0.5f,  0.5f,  1.0f, 0.0f, 0.0f,
+//
+//        0.5f,  0.5f,  0.5f,  1.0f, 0.0f, 0.0f,
+//        0.5f,  0.5f, -0.5f,  1.0f, 1.0f, 0.0f,
+//        0.5f, -0.5f, -0.5f,  0.0f, 1.0f, 0.0f,
+//        0.5f, -0.5f, -0.5f,  0.0f, 1.0f, 0.0f,
+//        0.5f, -0.5f,  0.5f,  0.0f, 0.0f, 0.0f,
+//        0.5f,  0.5f,  0.5f,  1.0f, 0.0f, 0.0f,
+//
+//        -0.5f, -0.5f, -0.5f,  0.0f, 1.0f, 0.0f,
+//        0.5f, -0.5f, -0.5f,  1.0f, 1.0f, 0.0f,
+//        0.5f, -0.5f,  0.5f,  1.0f, 0.0f, 0.0f,
+//        0.5f, -0.5f,  0.5f,  1.0f, 0.0f, 0.0f,
+//        -0.5f, -0.5f,  0.5f,  0.0f, 0.0f, 0.0f,
+//        -0.5f, -0.5f, -0.5f,  0.0f, 1.0f, 0.0f,
+//
+//        -0.5f,  0.5f, -0.5f,  0.0f, 1.0f, 0.0f,
+//        0.5f,  0.5f, -0.5f,  1.0f, 1.0f, 0.0f,
+//        0.5f,  0.5f,  0.5f,  1.0f, 0.0f, 0.0f,
+//        0.5f,  0.5f,  0.5f,  1.0f, 0.0f, 0.0f,
+//        -0.5f,  0.5f,  0.5f,  0.0f, 0.0f, 0.0f,
+//        -0.5f,  0.5f, -0.5f,  0.0f, 1.0f, 0.0f
+//    };
 //
 //    glBindBuffer(GL_ARRAY_BUFFER, buffer);
-//    //glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
 //    glBufferData(GL_ARRAY_BUFFER, sizeof(GLfloat) * points * 6, vertices, GL_STATIC_DRAW);
-//
-//    delete vertices;
 //}
 //
+//
+//void setView(GLint uniView) {
+//    float camSpeed = 0.005f;
+//
+//    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
+//        cameraPos += camSpeed * cameraFront;
+//    else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
+//        cameraPos -= camSpeed * cameraFront;
+//    else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {
+//        rotate -= camSpeed;
+//        cameraFront.x = sin(rotate);
+//        cameraFront.z = -cos(rotate);
+//    }
+//    else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
+//        rotate += camSpeed;
+//        cameraFront.x = sin(rotate);
+//        cameraFront.z = -cos(rotate);
+//    }
+//
+//    glm::mat4 view;
+//    view = glm::lookAt(cameraPos, cameraPos + cameraFront, cameraUp);
+//    glUniformMatrix4fv(uniView, 1, GL_FALSE, glm::value_ptr(view));
+//}
 //
 //int main()
 //{
@@ -100,15 +144,11 @@
 //    GLuint vbo;
 //    glGenBuffers(1, &vbo);
 //
-//    /*GLfloat vertices[] = {
-//    0.0f, 0.5f, 1.0f, 0.0f, 0.0f,
-//    0.5f, -0.5f, 0.0f, 1.0f, 0.0f,
-//    -0.5f, -0.5f, 0.0f, 0.0f, 1.0f
-//    };*/
+//
 //
 //    int points = 4;
-//    object(points, vbo);
-//
+//    //object(points, vbo);
+//    cube(vbo);
 //
 //    // Utworzenie i skompilowanie shadera wierzcho³ków
 //    GLuint vertexShader = glCreateShader(GL_VERTEX_SHADER);
@@ -159,6 +199,20 @@
 //    glEnableVertexAttribArray(colAttrib);
 //    glVertexAttribPointer(colAttrib, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(GLfloat), (void*)(3 * sizeof(GLfloat)));
 //
+//
+//    glm::mat4 model = glm::mat4(1.0f);
+//    model = glm::rotate(model, glm::radians(20.0f), glm::vec3(0.0f, 0.0f, 1.0f));
+//
+//    GLint uniTrans = glGetUniformLocation(shaderProgram, "model");
+//    glUniformMatrix4fv(uniTrans, 1, GL_FALSE, glm::value_ptr(model));
+//
+//    GLint uniView = glGetUniformLocation(shaderProgram, "view");
+//
+//    glm::mat4 proj = glm::perspective(glm::radians(45.0f), 800.0f / 800.0f, 0.06f, 100.0f);
+//    GLint uniProj = glGetUniformLocation(shaderProgram, "proj");
+//
+//    glUniformMatrix4fv(uniProj, 1, GL_FALSE, glm::value_ptr(proj));
+//
 //    // Rozpoczêcie pêtli zdarzeñ
 //
 //    sf::Clock clock;
@@ -166,8 +220,9 @@
 //    double dt = 1 / 120;
 //    GLint primitive = GL_TRIANGLE_FAN;
 //    sf::Vector2i mousePos = sf::Mouse::getPosition(window);
-//    //glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+//   
 //
+//    glEnable(GL_DEPTH_TEST);
 //    while (window.isOpen()) {
 //        double time = clock.getElapsedTime().asMicroseconds();
 //        clock.restart();
@@ -207,23 +262,15 @@
 //            if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Num0) {
 //                primitive = GL_POLYGON;
 //            }
-//
-//            /*if (event.type == sf::Event::MouseMoved) {
-//                if (event.mouseMove.y > mousePos.y)
-//                    points--;
-//                else if (event.mouseMove.y < mousePos.y)
-//                    points++;
-//                mousePos.y = event.mouseMove.y;
-//                object(points, vbo);
-//                std::cout << points << std::endl;
-//            }*/
 //        }
+//
+//        setView(uniView);
 //        // Nadanie scenie koloru czarnego
 //        glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
-//        glClear(GL_COLOR_BUFFER_BIT);
+//        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 //
 //        // Narysowanie trójk¹ta na podstawie 3 wierzcho³ków
-//        glDrawArrays(primitive, 0, points);
+//        glDrawArrays(primitive, 0, 36);
 //        // Wymiana buforów tylni/przedni
 //        window.display();
 //    }

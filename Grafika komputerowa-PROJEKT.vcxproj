@@ -153,6 +153,8 @@
     <ClCompile Include="Exc4.cpp" />
     <ClCompile Include="Exc5.cpp" />
     <ClCompile Include="Exc6.cpp" />
+    <ClCompile Include="Exc7.cpp" />
+    <ClCompile Include="Exc8.cpp" />
     <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -171,9 +173,18 @@
     <ClInclude Include="Exc5.h" />
     <ClInclude Include="Exc6.h" />
     <ClInclude Include="MyVector.h" />
+    <ClInclude Include="stb_image.h" />
   </ItemGroup>
   <ItemGroup>
     <Font Include="Resources\Fonts\arial.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Resources\Textures\crate.bmp" />
+    <Image Include="Resources\Textures\metal.bmp" />
+    <Image Include="Resources\Textures\obraz.bmp" />
+    <Image Include="Resources\Textures\table.bmp" />
+    <Image Include="Resources\Textures\wall.bmp" />
+    <Image Include="Resources\Textures\wood.bmp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
